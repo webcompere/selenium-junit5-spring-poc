@@ -1,1 +1,2 @@
-poolMax: 10
+poolMax:
+baseUrl: https://jsonplaceholder.typicode.com/
