@@ -14,11 +14,13 @@ repositories {
 
 dependencies {
 	compile 'org.junit.jupiter:junit-jupiter-api:5.7.1'
-	compile 'org.springframework.boot:spring-boot-starter-test'
 	implementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.9.0'
 	implementation group: 'uk.org.webcompere', name: 'lightweight-config', version: '1.2.0'
+	implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '4.4.3'
+	implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '3.141.59'
+	implementation group: 'org.seleniumhq.selenium', name: 'selenium-chrome-driver', version: '3.141.59'
+	implementation 'org.springframework.boot:spring-boot-starter-test'
 
-	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
 test {

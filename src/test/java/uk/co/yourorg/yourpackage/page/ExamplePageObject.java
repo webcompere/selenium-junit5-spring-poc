@@ -7,6 +7,6 @@ import uk.co.webcompere.seleniumjunit5.pageobject.PageObjectBase;
 public class ExamplePageObject extends PageObjectBase {
 
     public String getFoo() {
-        return pretendWebDriver.getId();
+        return Integer.toString(webDriver.hashCode());
     }
 }

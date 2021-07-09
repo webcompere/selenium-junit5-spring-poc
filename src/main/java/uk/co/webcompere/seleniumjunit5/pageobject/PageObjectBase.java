@@ -1,17 +1,19 @@
 package uk.co.webcompere.seleniumjunit5.pageobject;
 
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import uk.co.webcompere.seleniumjunit5.pool.PretendWebDriver;
 
 import javax.annotation.PostConstruct;
 
 public abstract class PageObjectBase {
 
     @Autowired
-    protected PretendWebDriver pretendWebDriver;
+    protected WebDriver webDriver;
 
     @PostConstruct
     public void postConstruct() {
         // init the page object members
+        PageFactory.initElements(webDriver, this);
     }
 }

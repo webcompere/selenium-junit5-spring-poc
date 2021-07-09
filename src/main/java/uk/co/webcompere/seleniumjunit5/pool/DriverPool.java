@@ -1,6 +1,7 @@
 package uk.co.webcompere.seleniumjunit5.pool;
 
 import org.apache.commons.pool2.impl.GenericObjectPool;
+import org.openqa.selenium.WebDriver;
 import uk.co.webcompere.seleniumjunit5.config.Configuration;
 import uk.co.webcompere.seleniumjunit5.config.ConfigurationLoader;
 
@@ -11,10 +12,10 @@ import java.util.Optional;
  */
 public class DriverPool {
     public static DriverPool INSTANCE = new DriverPool();
-    private static final ThreadLocal<PretendWebDriver> PER_THREAD_INSTANCE = new ThreadLocal<>();
+    private static final ThreadLocal<WebDriver> PER_THREAD_INSTANCE = new ThreadLocal<>();
 
-    private GenericObjectPool<PretendWebDriver> objectPool =
-            new GenericObjectPool<>(new DriverObjectFactory<>(PretendWebDriver::new));
+    private GenericObjectPool<WebDriver> objectPool =
+            new GenericObjectPool<>(new DriverObjectFactory(ConfigurationLoader.getConfiguration()));
 
     // private constructor access via INSTANCE
     private DriverPool() {
@@ -28,7 +29,7 @@ public class DriverPool {
      * @throws Exception on error
      */
     public void clear() throws Exception {
-        objectPool.evict();
+        objectPool.close();
     }
 
     /**
@@ -36,7 +37,7 @@ public class DriverPool {
      * @return a driver from the pool
      * @throws Exception on error
      */
-    public PretendWebDriver allocate() throws Exception {
+    public WebDriver allocate() throws Exception {
         if (PER_THREAD_INSTANCE.get() == null) {
             PER_THREAD_INSTANCE.set(objectPool.borrowObject());
         }
@@ -47,7 +48,7 @@ public class DriverPool {
      * Get the current driver, without allocating one - can be empty
      * @return the driver or {@link Optional#empty()}
      */
-    public Optional<PretendWebDriver> get() {
+    public Optional<WebDriver> get() {
         return Optional.ofNullable(PER_THREAD_INSTANCE.get());
     }
 
