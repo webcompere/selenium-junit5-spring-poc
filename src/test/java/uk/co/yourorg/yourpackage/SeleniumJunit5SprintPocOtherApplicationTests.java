@@ -1,27 +1,28 @@
-package uk.co.webcompere.seleniumjunit5sprintpoc;
+package uk.co.yourorg.yourpackage;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.parallel.Execution;
-import org.junit.jupiter.api.parallel.ExecutionMode;
-import uk.co.webcompere.seleniumjunit5sprintpoc.annotations.InjectPageObject;
-import uk.co.webcompere.seleniumjunit5sprintpoc.annotations.SeleniumTest;
-import uk.co.webcompere.seleniumjunit5sprintpoc.page.PageObjectConcept;
-import uk.co.webcompere.seleniumjunit5sprintpoc.pool.PretendWebDriver;
+import uk.co.webcompere.seleniumjunit5.annotations.Inject;
+import uk.co.yourorg.yourpackage.junit.SeleniumTest;
+import uk.co.yourorg.yourpackage.page.ExamplePageObject;
+import uk.co.webcompere.seleniumjunit5.pool.PretendWebDriver;
+
+import static org.junit.jupiter.api.Assertions.fail;
 
 @SeleniumTest
-@Execution(ExecutionMode.CONCURRENT)
 class SeleniumJunit5SprintPocOtherApplicationTests {
-	@InjectPageObject
+
+	@Inject
 	private PretendWebDriver pretendWebDriver;
 
-	@InjectPageObject
-	private PageObjectConcept pageObjectConcept;
+	@Inject
+	private ExamplePageObject pageObjectConcept;
 
 	@Test
 	void test1() {
 		System.out.println(Thread.currentThread().getName());
 		System.out.println(Thread.currentThread().getName() + " Driver ID " + pretendWebDriver.getId());
 		System.out.println(Thread.currentThread().getName() + " Page Driver ID " + pageObjectConcept.getFoo());
+		fail();
 	}
 
 	@Test

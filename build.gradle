@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'uk.co.webcompere'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.9'
 sourceCompatibility = '11'
 
 repositories {
@@ -13,7 +13,11 @@ repositories {
 }
 
 dependencies {
-	testImplementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.9.0'
+	compile 'org.junit.jupiter:junit-jupiter-api:5.7.1'
+	compile 'org.springframework.boot:spring-boot-starter-test'
+	implementation group: 'org.apache.commons', name: 'commons-pool2', version: '2.9.0'
+	implementation group: 'uk.org.webcompere', name: 'lightweight-config', version: '1.2.0'
+
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 }
 
