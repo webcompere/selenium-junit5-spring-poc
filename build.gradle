@@ -8,6 +8,9 @@ group = 'uk.co.webcompere'
 version = '0.0.9'
 sourceCompatibility = '11'
 
+bootJar { enabled = false }
+jar {enabled = true}
+
 repositories {
 	mavenCentral()
 }
