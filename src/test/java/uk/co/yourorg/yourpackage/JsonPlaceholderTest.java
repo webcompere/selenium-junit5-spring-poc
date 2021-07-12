@@ -10,6 +10,9 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SeleniumTest
 class JsonPlaceholderTest {
 
+    /**
+     * Just injecting the homepage here for direct testing without action or state
+     */
     @Inject
     private JsonPlaceholderHome homePage;
 
@@ -18,6 +21,7 @@ class JsonPlaceholderTest {
         homePage.navigateTo();
         homePage.runScript();
 
+        // generally this is an anti-pattern - better to use waiting via selenium
         Thread.sleep(100);
 
         assertThat(homePage.getResultText())
@@ -29,6 +33,7 @@ class JsonPlaceholderTest {
         homePage.navigateTo();
         homePage.runScript();
 
+        // generally this is an anti-pattern - better to use waiting via selenium
         Thread.sleep(100);
 
         assertThat(homePage.getResultText())

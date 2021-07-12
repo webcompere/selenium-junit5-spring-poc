@@ -7,6 +7,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import uk.co.webcompere.seleniumjunit5.annotations.PageObject;
 import uk.co.webcompere.seleniumjunit5.pageobject.PageObjectBase;
 
+/**
+ * Knows about the controls on https://jsonplaceholder.typicode.com/ as at July 2021
+ */
 @PageObject
 public class JsonPlaceholderHome extends PageObjectBase {
 

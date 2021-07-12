@@ -11,25 +11,21 @@ import static org.junit.jupiter.api.Assertions.fail;
 @SeleniumTest
 class SeleniumJunit5SprintPocOtherApplicationTests {
 
+	// can inject a web driver if you need
 	@Inject
 	private WebDriver webDriver;
 
+	// can inject a web driver
 	@Inject
 	private ExamplePageObject pageObjectConcept;
 
 	@Test
 	void test1() {
-		System.out.println(Thread.currentThread().getName());
-//		System.out.println(Thread.currentThread().getName() + " Driver ID " + pretendWebDriver.getId());
-//		System.out.println(Thread.currentThread().getName() + " Page Driver ID " + pageObjectConcept.getFoo());
+		// this failure will make a screen shot happen
 		fail();
 	}
 
 	@Test
 	void test2() {
-		System.out.println(Thread.currentThread().getName());
-//		System.out.println(Thread.currentThread().getName() + " Driver ID " + pretendWebDriver.getId());
-//		System.out.println(Thread.currentThread().getName() + " Page Driver ID " + pageObjectConcept.getFoo());
-
 	}
 }

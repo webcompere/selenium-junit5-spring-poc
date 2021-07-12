@@ -13,15 +13,19 @@ import static org.assertj.core.api.Assertions.assertThat;
 @SeleniumTest
 class SeleniumJunit5SprintPocApplicationTests {
 
+	// Can inject a page object
 	@Inject
 	private ExamplePageObject pageObjectConcept;
 
+	// Can inject the web driver
 	@Inject
 	private WebDriver pretendWebDriver;
 
+	// Inject an action class
 	@Inject
 	private LoginAction loginAction;
 
+	// Inject the test state
 	@Inject
 	private TestState state;
 
@@ -29,24 +33,17 @@ class SeleniumJunit5SprintPocApplicationTests {
 	void test1() {
 		assertThat(state.isLoggedIn()).isFalse();
 		System.out.println(Thread.currentThread().getName());
-//		System.out.println(Thread.currentThread().getName() + " Driver ID " + pretendWebDriver.getId());
-//		System.out.println(Thread.currentThread().getName() + " Page Driver ID " + pageObjectConcept.getFoo());
 	}
 
 	@Test
 	void test2() {
 		assertThat(state.isLoggedIn()).isFalse();
-		System.out.println(Thread.currentThread().getName());
-//		System.out.println(Thread.currentThread().getName() + " Driver ID " + pretendWebDriver.getId());
-//		System.out.println(Thread.currentThread().getName() + " Page Driver ID " + pageObjectConcept.getFoo());
 
 	}
 
 	@Test
 	void loginTest() {
 		assertThat(state.isLoggedIn()).isFalse();
-//		System.out.println(Thread.currentThread().getName() + " Driver ID " + pretendWebDriver.getId());
-//		System.out.println(Thread.currentThread().getName() + " Page Driver ID " + pageObjectConcept.getFoo());
 		loginAction.doAction();
 	}
 
