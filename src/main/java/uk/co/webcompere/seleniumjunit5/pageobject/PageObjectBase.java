@@ -4,10 +4,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import uk.co.webcompere.seleniumjunit5.annotations.Inject;
+import uk.co.webcompere.seleniumjunit5.annotations.PageObject;
 import uk.co.webcompere.seleniumjunit5.config.Configuration;
 
 import javax.annotation.PostConstruct;
 
+@PageObject
 public abstract class PageObjectBase {
 
     @Autowired

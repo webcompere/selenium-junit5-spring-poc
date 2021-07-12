@@ -22,8 +22,6 @@ public class LoginAction {
     private TestState state;
 
     public void doAction() {
-        System.out.println(Thread.currentThread().getName() + " " + id + " page 1 driver " + examplePageObject.getFoo());
-        System.out.println(Thread.currentThread().getName() + " " + id + " page 2 driver " + otherPageObject.getFoo());
         state.setLoggedIn(true);
     }
 }
