@@ -30,7 +30,7 @@ public class SeleniumConfiguration {
 
     @Bean
     public static BeanFactoryPostProcessor beanFactoryPostProcessor() {
-        return new ThreadLocalScopePostProcessor();
+        return new TestCaseScopePostProcessor();
     }
 
     @Bean

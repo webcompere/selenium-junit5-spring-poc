@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static uk.co.webcompere.seleniumjunit5.spring.ThreadLocalScope.THREADLOCAL_SCOPE;
+import static uk.co.webcompere.seleniumjunit5.spring.TestCaseScope.TESTCASE_SCOPE;
 
 /**
  * Used to describe an injectable state in the test
@@ -16,6 +16,6 @@ import static uk.co.webcompere.seleniumjunit5.spring.ThreadLocalScope.THREADLOCA
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Component
-@Scope(THREADLOCAL_SCOPE)
+@Scope(TESTCASE_SCOPE)
 public @interface State {
 }

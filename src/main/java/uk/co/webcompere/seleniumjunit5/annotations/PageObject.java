@@ -8,7 +8,7 @@ import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
-import static uk.co.webcompere.seleniumjunit5.spring.ThreadLocalScope.THREADLOCAL_SCOPE;
+import static uk.co.webcompere.seleniumjunit5.spring.TestCaseScope.TESTCASE_SCOPE;
 
 /**
  * Used to describe an injectable page object - this should be used to ensure
@@ -18,6 +18,6 @@ import static uk.co.webcompere.seleniumjunit5.spring.ThreadLocalScope.THREADLOCA
 @Target({ ElementType.ANNOTATION_TYPE, ElementType.TYPE })
 @Retention(RetentionPolicy.RUNTIME)
 @Component
-@Scope(THREADLOCAL_SCOPE)
+@Scope(TESTCASE_SCOPE)
 public @interface PageObject {
 }

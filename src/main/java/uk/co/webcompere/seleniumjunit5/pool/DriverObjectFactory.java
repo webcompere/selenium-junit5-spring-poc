@@ -8,21 +8,25 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import uk.co.webcompere.seleniumjunit5.config.Configuration;
 
+import static org.apache.commons.lang3.StringUtils.isBlank;
+
 /**
  * Plugs into the {@link DriverPool}'s <code>GenericObjectPool</code> to build web drivers according
  * to the settings.
  */
 public class DriverObjectFactory extends BasePooledObjectFactory<WebDriver> {
-    private Configuration configuation;
+    private Configuration configuration;
 
-    public DriverObjectFactory(Configuration configuation) {
-        this.configuation = configuation;
-        WebDriverManager.chromedriver().setup();
+    public DriverObjectFactory(Configuration configuration) {
+        this.configuration = configuration;
     }
 
     @Override
-    public WebDriver create() {
-        return new ChromeDriver();
+    public WebDriver create() throws Exception {
+        if (!isBlank(configuration.getRemoteDriverUrl())) {
+            return configuration.getDriver().createRemote(configuration.getRemoteDriverUrl());
+        }
+        return configuration.getDriver().create();
     }
 
     @Override

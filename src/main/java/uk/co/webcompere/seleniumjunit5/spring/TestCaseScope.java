@@ -12,15 +12,16 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Reimplements {@link SimpleThreadScope} with hooks for destruction per test
+ * Reimplements {@link SimpleThreadScope} with hooks for destruction per test. This allows beans to be
+ * isolated on a per-test basis. It's the equivalent of request scope.
  */
-public class ThreadLocalScope implements Scope {
-    public static final String THREADLOCAL_SCOPE = "threadLocalScope";
+public class TestCaseScope implements Scope {
+    public static final String TESTCASE_SCOPE = "testCaseScope";
 
-    private static final Log LOGGER = LogFactory.getLog(ThreadLocalScope.class);
+    private static final Log LOGGER = LogFactory.getLog(TestCaseScope.class);
 
     private static final ThreadLocal<Map<String, Object>> SCOPES =
-            new NamedThreadLocal<Map<String, Object>>("SimpleThreadScope") {
+            new NamedThreadLocal<>("TestCaseScope") {
                 @Override
                 protected Map<String, Object> initialValue() {
                     return new HashMap<>();

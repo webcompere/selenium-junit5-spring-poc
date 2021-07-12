@@ -1,2 +1,4 @@
 poolMax:
 baseUrl: https://jsonplaceholder.typicode.com/
+remoteDriverUrl: ${DRIVER_URL}
+driver: ${DRIVER:-CHROME}
